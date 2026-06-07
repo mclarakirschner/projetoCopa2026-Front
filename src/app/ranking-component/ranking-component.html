@@ -1,0 +1,21 @@
+<h2 class="mb-4">🏆 Ranking da Copa 2026</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Posição</th>
+            <th>Time</th>
+            <th>Grupo</th>
+            <th>Pontos</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let t of times(); let i = index">
+            <td>{{ i + 1 }}º</td>
+            <td>{{ t.nome }}</td>
+            <td>{{ t.grupo }}</td>
+            <td>{{ t.pontos }}</td>
+        </tr>
+    </tbody>
+</table>

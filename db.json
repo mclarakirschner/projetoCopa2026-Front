@@ -1,0 +1,23 @@
+{
+  "times": [
+    {
+      "id": 1,
+      "nome": "Brasil",
+      "pontos": 6
+    },
+    {
+      "id": 2,
+      "nome": "França",
+      "pontos": 3
+    }
+  ],
+  "partidas": [
+    {
+      "id": 1,
+      "timeCasaId": 1,
+      "timeForaId": 2,
+      "golsCasa": 2,
+      "golsFora": 1
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+<div class="container mt-4">
+
+    <h2>Times da Copa</h2>
+
+    <form [formGroup]="formGroupTime">
+        <div class="col-md-6">
+            <label for="nome">Nome</label>
+            <input formControlName="nome" type="text" class="form-control" id="nome">
+        </div>
+
+        <div class="col-md-6">
+            <label for="grupo">Grupo</label>
+            <input formControlName="grupo" type="text" class="form-control" id="grupo">
+        </div>
+
+        <div class="col-md-6">
+            <label for="pontos">Pontos</label>
+            <input formControlName="pontos" type="text" class="form-control" id="pontos">
+        </div>
+
+        <button type="submit" class="btn btn-primary" (click)="save()">Salvar</button>
+        <button type="submit" class="btn btn-primary">Alterar</button>
+        <button type="submit" class="btn btn-primary">Excluir</button>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Grupo</th>
+                <th scope="col">Pontos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of times()">
+                <td>{{t.nome}}</td>
+                <td>{{t.grupo}}</td>
+                <td>{{t.pontos}}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="delete(t)">Remover</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>

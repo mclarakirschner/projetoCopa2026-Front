@@ -1,0 +1,28 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Time } from './time';
+
+
+@Injectable({
+    providedIn: 'root'
+})
+export class TimeService {
+
+    private apiUrl = 'http://localhost:8080/times';
+
+    constructor(private http: HttpClient) { }
+
+    getAllTimes(): Observable<Time[]> {
+        return this.http.get<Time[]>(this.apiUrl);
+    }
+
+    save(time: Time): Observable<Time> {
+        return this.http.post<Time>(this.apiUrl, time);
+    }
+
+    delete(time: Time): Observable<void> {
+        return this.http.delete<void>(`${this.apiUrl}/${time.id}`);
+    }
+
+}
