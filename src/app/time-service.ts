@@ -25,4 +25,8 @@ export class TimeService {
         return this.http.delete<void>(`${this.apiUrl}/${time.id}`);
     }
 
+    getRanking() { //ordenar rankinhg
+        return this.http.get<Time[]>('http://localhost:8080/times/ranking');
+    }
+
 }
