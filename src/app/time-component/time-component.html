@@ -18,13 +18,19 @@
             <input formControlName="pontos" type="text" class="form-control" id="pontos">
         </div>
 
-        <button type="submit" class="btn btn-primary" (click)="save()">Salvar</button>
-        <button type="submit" class="btn btn-primary">Alterar</button>
-        <button type="submit" class="btn btn-primary">Excluir</button>
+        <button
+    type="button"
+    class="btn btn-primary"
+    (click)="save()">
+
+    {{ idEditando ? 'Atualizar' : 'Salvar' }}
+
+</button>
+
     </form>
 
     <p>Total de times: {{ times().length }}</p>
-    
+
     <table class="table">
         <thead>
             <tr>
@@ -38,9 +44,19 @@
                 <td>{{t.nome}}</td>
                 <td>{{t.grupo}}</td>
                 <td>{{t.pontos}}</td>
-                <td>
-                    <button class="btn btn-danger" (click)="delete(t)">Remover</button>
-                </td>
+<td>
+    <button
+        class="btn btn-warning me-2"
+        (click)="edit(t)">
+        Editar
+    </button>
+
+    <button
+        class="btn btn-danger"
+        (click)="delete(t)">
+        Remover
+    </button>
+</td>
             </tr>
         </tbody>
     </table>

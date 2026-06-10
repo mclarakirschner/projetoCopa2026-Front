@@ -9,9 +9,11 @@ import { TimeService } from '../time-service';
   templateUrl: './time-component.html',
   styleUrls: ['./time-component.css']
 })
+
 export class TimeComponent implements OnInit {
 
   times = signal<Time[]>([]);
+  idEditando: number | null = null;
 
   formGroupTime: FormGroup;
 
@@ -32,14 +34,49 @@ export class TimeComponent implements OnInit {
   }
 
   save() {
-    this.service.save(this.formGroupTime.value).subscribe(
-      {
+
+    if (this.idEditando) {
+
+      const time = {
+        ...this.formGroupTime.value,
+        id: this.idEditando
+      };
+
+      this.service.update(time).subscribe({
+        next: () => {
+
+          this.service.getAllTimes().subscribe({
+            next: json => this.times.set(json)
+          });
+
+          this.formGroupTime.reset();
+          this.idEditando = null;
+        }
+      });
+
+    } else {
+
+      this.service.save(this.formGroupTime.value).subscribe({
         next: json => {
           this.times.update(times => [...times, json]);
           this.formGroupTime.reset();
         }
-      }
-    );
+      });
+
+    }
+
+  }
+
+  edit(time: Time) {
+
+    this.idEditando = time.id!;
+
+    this.formGroupTime.patchValue({
+      nome: time.nome,
+      grupo: time.grupo,
+      pontos: time.pontos
+    });
+
   }
 
   delete(time: Time) {
@@ -51,5 +88,7 @@ export class TimeComponent implements OnInit {
       }
     )
   }
+
+
 
 }

@@ -21,6 +21,14 @@ export class TimeService {
         return this.http.post<Time>(this.apiUrl, time);
     }
 
+    update(time: Time): Observable<void> {
+
+    return this.http.put<void>(
+        `${this.apiUrl}/${time.id}`,
+        time
+      );
+    }
+
     delete(time: Time): Observable<void> {
         return this.http.delete<void>(`${this.apiUrl}/${time.id}`);
     }
