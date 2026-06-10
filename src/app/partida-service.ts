@@ -20,6 +20,13 @@ export class PartidaService {
         return this.http.post<Partida>(this.apiUrl, partida);
     }
 
+    update(partida: Partida): Observable<void> {
+    return this.http.put<void>(
+        `${this.apiUrl}/${partida.id}`,
+        partida
+    );
+}
+
     delete(partida: Partida): Observable<void> {
         return this.http.delete<void>(`${this.apiUrl}/${partida.id}`);
     }

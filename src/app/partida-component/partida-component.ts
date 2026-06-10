@@ -12,6 +12,7 @@ import { PartidaService } from '../partida-service';
 export class PartidaComponent implements OnInit {
 
   partidas = signal<Partida[]>([]);
+  idEditando: number | null = null;
 
   formGroupPartida: FormGroup;
 
@@ -36,14 +37,50 @@ export class PartidaComponent implements OnInit {
   }
 
   save() {
-    this.service.save(this.formGroupPartida.value).subscribe(
-      {
+
+    if (this.idEditando) {
+
+      const partida = {
+        ...this.formGroupPartida.value,
+        id: this.idEditando
+      };
+
+      this.service.update(partida).subscribe({
+        next: () => {
+
+          this.service.getAllPartidas().subscribe({
+            next: json => this.partidas.set(json)
+          });
+
+          this.formGroupPartida.reset();
+          this.idEditando = null;
+        }
+      });
+
+    } else {
+
+      this.service.save(this.formGroupPartida.value).subscribe({
         next: json => {
           this.partidas.update(partidas => [...partidas, json]);
           this.formGroupPartida.reset();
         }
-      }
-    );
+      });
+
+    }
+
+  }
+
+  edit(partida: Partida) {
+
+    this.idEditando = partida.id;
+
+    this.formGroupPartida.patchValue({
+      timeCasa: partida.timeCasa,
+      timeVisitante: partida.timeVisitante,
+      golsCasa: partida.golsCasa,
+      golsVisitante: partida.golsVisitante
+    });
+
   }
 
   delete(partida: Partida) {

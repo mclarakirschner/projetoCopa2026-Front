@@ -2,47 +2,57 @@
 
 <form [formGroup]="formGroupPartida">
 
-    <div class="mb-3">
-        <label for="timeCasa">Time Casa</label>
-        <input formControlName="timeCasa" type="text" class="form-control" id="timeCasa">
-    </div>
+  <div class="mb-3">
+    <label for="timeCasa">Time Casa</label>
+    <input formControlName="timeCasa" type="text" class="form-control" id="timeCasa">
+  </div>
 
-    <div class="mb-3">
-        <label for="timeVisitante">Time Visitante</label>
-        <input formControlName="timeVisitante" type="text" class="form-control" id="timeVisitante">
-    </div>
+  <div class="mb-3">
+    <label for="timeVisitante">Time Visitante</label>
+    <input formControlName="timeVisitante" type="text" class="form-control" id="timeVisitante">
+  </div>
 
-    <div class="mb-3">
-        <label for="golsCasa">Gols Casa</label>
-        <input formControlName="golsCasa" type="number" class="form-control" id="golsCasa">
-    </div>
+  <div class="mb-3">
+    <label for="golsCasa">Gols Casa</label>
+    <input formControlName="golsCasa" type="number" class="form-control" id="golsCasa">
+  </div>
 
-    <div class="mb-3">
-        <label for="golsVisitante">Gols Visitante</label>
-        <input formControlName="golsVisitante" type="number" class="form-control" id="golsVisitante">
-    </div>
+  <div class="mb-3">
+    <label for="golsVisitante">Gols Visitante</label>
+    <input formControlName="golsVisitante" type="number" class="form-control" id="golsVisitante">
+  </div>
 
-    <button type="button" class="btn btn-primary" (click)="save()">
-        Salvar
-    </button>
+  <button type="button" class="btn btn-primary" (click)="save()">
+
+    {{ idEditando ? 'Atualizar' : 'Salvar' }}
+
+  </button>
 
 </form>
 
 
-<table class="table table-striped mt-4">
-    <thead>
-        <tr>
-            <th>Time Casa</th>
-            <th>Placar</th>
-            <th>Time Visitante</th>
-        </tr>
-    </thead>
+<thead>
+  <tr>
+    <th>Casa</th>
+    <th>Placar</th>
+    <th>Visitante</th>
+    <th>Ações</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let p of partidas()">
+    <td>{{ p.timeCasa }}</td>
+    <td>{{ p.golsCasa }} x {{ p.golsVisitante }}</td>
+    <td>{{ p.timeVisitante }}</td>
 
-    <tbody>
-        <tr *ngFor="let p of partidas()">
-            <td>{{ p.timeCasa }}</td>
-            <td>{{ p.golsCasa }} x {{ p.golsVisitante }}</td>
-            <td>{{ p.timeVisitante }}</td>
-        </tr>
-    </tbody>
-</table>
+    <td>
+      <button class="btn btn-warning me-2" (click)="edit(p)">
+        Editar
+      </button>
+
+      <button class="btn btn-danger" (click)="delete(p)">
+        Excluir
+      </button>
+    </td>
+  </tr>
+</tbody>
