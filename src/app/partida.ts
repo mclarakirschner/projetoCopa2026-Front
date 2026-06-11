@@ -1,7 +1,12 @@
 export interface Partida {
-    id: number;
-    timeCasa: string;
-    timeVisitante: string;
-    golsCasa: number;
-    golsVisitante: number;
+  id: number;
+
+  timeCasaId: number;
+  timeCasaNome: string;
+
+  timeVisitanteId: number;
+  timeVisitanteNome: string;
+
+  golsCasa: number;
+  golsVisitante: number;
 }
