@@ -1,8 +1,7 @@
 <div class="container mt-4">
 
-  <h2 class="text-center mb-4">⚽ Gerenciamento de Partidas</h2>
+  <h2 class="text-center mb-4"> Cadastro de Partidas</h2>
 
-  <!-- FORMULÁRIO -->
   <div class="card p-3 mb-4 shadow-sm">
 
     <h5 class="mb-3">
@@ -13,10 +12,9 @@
 
       <div class="row">
 
-        <!-- TIME CASA -->
         <div class="col-md-3">
           <label class="form-label">Time Casa</label>
-          <select class="form-control" formControlName="timeCasaId">
+          <select class="form-select" formControlName="timeCasaId">
             <option value="">Selecione</option>
             <option *ngFor="let t of times" [value]="t.id">
               {{ t.nome }}
@@ -29,21 +27,18 @@
           <input type="number" min="0" class="form-control" formControlName="golsCasa">
         </div>
 
-        <!-- X -->
         <div class="col-md-1 d-flex align-items-end justify-content-center">
           <h4>X</h4>
         </div>
 
-        <!-- GOLS VISITANTE -->
         <div class="col-md-2">
           <label class="form-label">Gols Visitante</label>
           <input type="number" min="0" class="form-control" formControlName="golsVisitante">
         </div>
 
-        <!-- TIME VISITANTE -->
         <div class="col-md-3">
           <label class="form-label">Time Visitante</label>
-          <select class="form-control" formControlName="timeVisitanteId">
+          <select class="form-select" formControlName="timeVisitanteId">
             <option value="">Selecione</option>
             <option *ngFor="let t of times" [value]="t.id">
               {{ t.nome }}
@@ -62,49 +57,48 @@
     </form>
   </div>
 
-  <!-- TABELA -->
   <div class="card shadow-sm p-3">
 
-    <h5 class="mb-3">📋 Lista de Partidas</h5>
+    <h5 class="mb-3">Lista de Partidas</h5>
 
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Time Casa</th>
-      <th>Placar</th>
-      <th>Time Visitante</th>
-      <th>Ações</th>
-    </tr>
-  </thead>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Time Casa</th>
+          <th>Placar</th>
+          <th>Time Visitante</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <tr *ngFor="let p of partidas()">
+      <tbody>
+        <tr *ngFor="let p of partidas()">
 
-      <td>
-        {{ p.timeCasaNome }}
-      </td>
+          <td>
+            {{ p.timeCasaNome }}
+          </td>
 
-      <td>
-        {{ p.golsCasa }} x {{ p.golsVisitante }}
-      </td>
+          <td>
+            {{ p.golsCasa }} x {{ p.golsVisitante }}
+          </td>
 
-      <td>
-        {{ p.timeVisitanteNome }}
-      </td>
+          <td>
+            {{ p.timeVisitanteNome }}
+          </td>
 
-      <td>
-        <button class="btn btn-warning me-2" (click)="edit(p)">
-          Editar
-        </button>
+          <td>
+            <button class="btn btn-warning me-2" (click)="edit(p)">
+              Editar
+            </button>
 
-        <button class="btn btn-danger" (click)="delete(p)">
-          Excluir
-        </button>
-      </td>
+            <button class="btn btn-danger" (click)="delete(p)">
+              Excluir
+            </button>
+          </td>
 
-    </tr>
-  </tbody>
-</table>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
 </div>

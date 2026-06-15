@@ -1,65 +1,81 @@
-<div class="container mt-4">
+<div class="container footer-spacer">
 
-    <h2>Times da Copa</h2>
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2 class="title-times">Times da Copa</h2>
+        </div>
+    </div>
 
-    <form [formGroup]="formGroupTime">
-        <div class="col-md-6">
-            <label for="nome">Nome</label>
-            <input formControlName="nome" type="text" class="form-control" id="nome">
+    <div class="row g-4">
+        <div class="col-lg-5">
+            <div class="form-card">
+                <form [formGroup]="formGroupTime">
+
+                    <div class="mb-3">
+                        <label class="form-label" for="nome">Nome</label>
+                        <input formControlName="nome" type="text" class="form-control" id="nome">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="grupo">Grupo</label>
+                        <input formControlName="grupo" type="text" class="form-control" id="grupo">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label" for="pontos">Pontos</label>
+                        <input formControlName="pontos" type="text" class="form-control" id="pontos">
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="button" class="btn-premium-primary" (click)="save()">
+                            {{ idEditando ? 'Atualizar' : 'Salvar' }}
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+            <p class="text-muted"
+                style="font-size: 0.95rem; letter-spacing: 1px; padding-bottom: 0; margin-top: -20px; padding-left: 10px;">
+                Total de times registrados: <strong style="color: var(--accent-neon);">{{ times().length }}</strong>
+            </p>
         </div>
 
-        <div class="col-md-6">
-            <label for="grupo">Grupo</label>
-            <input formControlName="grupo" type="text" class="form-control" id="grupo">
+        <div class="col-lg-7">
+            <div class="table-responsive-wrapper">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Grupo</th>
+                            <th scope="col">Pontos</th>
+                            <th scope="col" class="text-end">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let t of times()">
+                            <td>
+                                <div class="team-cell">
+                                    <span class="status-dot"></span>
+                                    <strong class="team-name">{{t.nome}}</strong>
+                                </div>
+                            </td>
+                            <td><span class="badge-group">{{t.grupo}}</span></td>
+                            <td><span class="points-display">{{t.pontos}} <small>PTS</small></span></td>
+                            <td class="text-end">
+                                <button class="btn-action-edit" (click)="edit(t)" title="Editar">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+
+                                <button class="btn-action-delete" (click)="delete(t)" title="Remover">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-
-        <div class="col-md-6">
-            <label for="pontos">Pontos</label>
-            <input formControlName="pontos" type="text" class="form-control" id="pontos">
-        </div>
-
-        <button
-    type="button"
-    class="btn btn-primary"
-    (click)="save()">
-
-    {{ idEditando ? 'Atualizar' : 'Salvar' }}
-
-</button>
-
-    </form>
-
-    <p>Total de times: {{ times().length }}</p>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Grupo</th>
-                <th scope="col">Pontos</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let t of times()">
-                <td>{{t.nome}}</td>
-                <td>{{t.grupo}}</td>
-                <td>{{t.pontos}}</td>
-<td>
-    <button
-        class="btn btn-warning me-2"
-        (click)="edit(t)">
-        Editar
-    </button>
-
-    <button
-        class="btn btn-danger"
-        (click)="delete(t)">
-        Remover
-    </button>
-</td>
-            </tr>
-        </tbody>
-    </table>
-
+    </div>
 
 </div>

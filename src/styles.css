@@ -1,1 +1,112 @@
-/* You can add global styles to this file, and also import other style files */
+/* ==========================================================================
+   ESTILO GLOBAL - COPA DO MUNDO 2026 (src/styles.css)
+   ========================================================================== */
+
+/* Importando a fonte oficial do projeto (Moderna e Esportiva) */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=400;600;800&display=swap');
+
+
+:root {
+    /* Paleta de Cores da Copa 2026 */
+    --primary-color: #6366f1;
+    /* Roxo/Azul moderno para botões e destaques */
+    --accent-gold: #ffb800;
+    /* Dourado Taça FIFA */
+    --accent-neon: #00ff87;
+    /* Verde Neon (Gramado futurista) */
+    --danger-color: #ff4a5a;
+    /* Vermelho para botão de remover */
+
+    /* Cores de Texto */
+    --text-light: #ffffff;
+    --text-muted: #b3a4cb;
+    /* Roxo acinzentado para textos secundários */
+
+    /* Configurações dos Cards e Tabelas (Glassmorphism) */
+    --card-bg: rgba(255, 255, 255, 0.04);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Configuração do Corpo da Página (Aplica-se a todo o app) */
+body {
+    /* Degradê imersivo que lembra a atmosfera de um estádio à noite */
+    background: linear-gradient(135deg, #0f051d 0%, #1e0b36 50%, #2a0845 100%);
+    background-attachment: fixed;
+    /* O fundo fica fixo enquanto a página rola */
+    background-size: cover;
+
+    color: var(--text-light);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Reset básico para links (caso use no menu superior) */
+a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Customização da barra de rolagem do navegador para combinar com o tema */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f051d;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e0b36;
+    border-radius: 5px;
+    border: 2px solid #0f051d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* ==========================================================================
+   FORÇANDO ÍCONES DA HOME NO ARQUIVO GLOBAL (styles.css)
+   ========================================================================== */
+
+/* Garante o tamanho do círculo */
+.card-icon-wrapper {
+    margin-bottom: 25px;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    width: 70px !important;
+    height: 70px !important;
+    border-radius: 50% !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+/* Alvo direto na tag i do Bootstrap Icons */
+.card-icon-wrapper i.bi {
+    font-size: 2rem !important;
+    /* Adeus tamanho pequeno! */
+    color: #818cf8 !important;
+    /* Adeus cor preta! Agora é roxo/azul */
+    display: inline-block !important;
+    transition: all 0.4s ease !important;
+}
+
+/* ⚡ Efeito Hover Global */
+.card:hover .card-icon-wrapper {
+    border-color: rgba(0, 255, 135, 0.4) !important;
+    background: rgba(0, 255, 135, 0.05) !important;
+    transform: scale(1.05) !important;
+}
+
+.card:hover .card-icon-wrapper i.bi {
+    color: #00ff87 !important;
+    /* Acende em Verde Neon ao passar o mouse */
+    filter: drop-shadow(0 0 12px rgba(0, 255, 135, 0.8)) !important;
+    /* Brilho realista */
+}

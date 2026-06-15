@@ -161,20 +161,35 @@ export class TimeComponent implements OnInit {
 
     Swal.fire({
       title: 'Tem certeza?',
-      text: 'Esse time será excluído!',
+      text: 'Deseja realmente excluir este time?',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sim',
+      confirmButtonText: 'Sim, excluir',
       cancelButtonText: 'Cancelar'
     }).then(result => {
 
       if (result.isConfirmed) {
 
         this.service.delete(time).subscribe({
+
           next: () => {
             this.carregarTimes();
-            Swal.fire('Deletado!', 'Time removido com sucesso.', 'success');
+
+            Swal.fire(
+              'Excluído!',
+              'Time removido com sucesso.',
+              'success'
+            );
+          },
+
+          error: () => {
+            Swal.fire(
+              'Erro',
+              'Não é possível excluir este time porque ele está em partidas.',
+              'error'
+            );
           }
+
         });
 
       }

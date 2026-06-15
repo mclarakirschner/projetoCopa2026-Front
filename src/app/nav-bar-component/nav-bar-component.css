@@ -1,0 +1,94 @@
+/* ==========================================================================
+   CSS PURÍSSIMO PARA A NAVBAR ORIGINAL (navbar.component.css)
+   ========================================================================== */
+
+/* Customização Geral da Barra (Transformando em um Painel Flutuante) */
+.navbar {
+    background: rgba(15, 5, 29, 0.6) !important;
+    /* Fundo escuro super translúcido */
+    backdrop-filter: blur(20px) !important;
+    /* Efeito desfoque de vidro premium */
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    /* Linha cirúrgica inferior */
+    padding: 15px 0 !important;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* Garante que ela fique sempre acima do conteúdo ao rolar */
+}
+
+/* Logo / Marca (Copa 2026) */
+.navbar-brand {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 400;
+    /* Traço fino, combinando com o H1 */
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    /* Espaçamento elegante */
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #ffffff 50%, var(--accent-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: opacity 0.3s ease;
+}
+
+.navbar-brand:hover {
+    opacity: 0.8;
+}
+
+/* Links de Navegação (Home, Times, Partidas, Ranking) */
+.nav-link {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 300;
+    /* Fonte bem fina e limpa */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* Espaçamento sutil */
+    color: var(--text-muted) !important;
+    padding: 8px 16px !important;
+    margin: 0 4px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease !important;
+    position: relative;
+}
+
+/* Efeito Hover nos Links (Mudança de cor suave) */
+.nav-link:hover {
+    color: #ffffff !important;
+}
+
+/* Linha Neon minimalista que aparece embaixo do link quando passamos o mouse */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: var(--accent-neon);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 60%;
+    /* A linha expande elegantemente a partir do centro */
+}
+
+/* Customização do Botão de Menu sanduíche no celular */
+.navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 6px 10px !important;
+    border-radius: 8px !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.4) !important;
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+    /* Garante que o ícone fique branquinho no fundo escuro */
+}

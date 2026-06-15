@@ -1,0 +1,442 @@
+/* Container Principal */
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Título Principal Minimalista e Elegante */
+h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 300;
+    /* Fonte bem fina e leve, adeus traços grossos! */
+    font-size: 3.2rem;
+    text-transform: uppercase;
+    letter-spacing: 12px;
+    /* Espaçamento super amplo (estilo marca de luxo) */
+    padding-left: 12px;
+    /* Compensa o espaçamento na última letra para centralizar perfeito */
+
+    /* Gradiente suave e sofisticado (Branco Puro para Prata Metálico) */
+    background: linear-gradient(135deg,
+            #ffffff 30%,
+            #a5b4fc 70%,
+            var(--accent-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    margin-top: 30px;
+    margin-bottom: 25px;
+    opacity: 0.95;
+    transition: all 0.5s ease;
+}
+
+
+/* Linha decorativa fina logo abaixo do título para dar acabamento */
+h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-neon), transparent);
+    margin: 15px auto 0 auto;
+}
+
+/* Animação que faz o brilho dourado se mover */
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* Subtítulo (Lead) */
+p.lead {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    max-width: 650px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+}
+
+/* Espaçamento dos Cards */
+.row.g-4 {
+    margin-top: 10px;
+}
+
+/* Estilização dos Cards com Efeito de Vidro */
+.card {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--card-border) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px !important;
+    padding: 20px 10px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Detalhe luminoso no topo do card ao passar o mouse */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-neon));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Hover nos Cards */
+.card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 255, 135, 0.3) !important;
+    box-shadow: 0 15px 30px rgba(0, 255, 135, 0.15);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   FORÇANDO O TAMANHO E COR DOS ÍCONES (home.component.css)
+   ========================================================================== */
+
+/* O círculo que envolve o ícone */
+.card-icon-wrapper {
+    margin-bottom: 25px;
+    display: inline-flex !important;
+    /* Força o alinhamento no centro */
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    width: 70px !important;
+    /* Aumentado um pouco para dar mais espaço */
+    height: 70px !important;
+    border-radius: 50% !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+/* ==========================================================================
+   FORÇANDO O TAMANHO E COR DOS ÍCONES (home.component.css)
+   ========================================================================== */
+
+/* O círculo que envolve o ícone */
+.card-icon-wrapper {
+    margin-bottom: 25px;
+    display: inline-flex !important;
+    /* Força o alinhamento no centro */
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    width: 70px !important;
+    /* Aumentado um pouco para dar mais espaço */
+    height: 70px !important;
+    border-radius: 50% !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+/* Alvo cirúrgico: Qualquer classe que comece com "bi-" dentro do wrapper */
+.card-icon-wrapper [class^="bi-"],
+.card-icon-wrapper [class*=" bi-"] {
+    font-size: 2rem !important;
+    /* Força o ícone a ficar GRANDE */
+    color: #818cf8 !important;
+    /* Força a cor roxo/azulada elegante padrão */
+    display: inline-block !important;
+    transition: all 0.4s ease !important;
+}
+
+/* ⚡ EFEITO HOVER MASTER: Quando passa o mouse no CARD */
+.card:hover .card-icon-wrapper {
+    border-color: rgba(0, 255, 135, 0.4) !important;
+    /* Borda fica verde neon */
+    background: rgba(0, 255, 135, 0.05) !important;
+    /* Fundo ganha tom verde sutil */
+    transform: scale(1.05) !important;
+}
+
+.card:hover .card-icon-wrapper [class^="bi-"],
+.card:hover .card-icon-wrapper [class*=" bi-"] {
+    color: var(--accent-neon) !important;
+    /* Força o ícone a ACENDER em verde neon */
+    filter: drop-shadow(0 0 12px rgba(0, 255, 135, 0.8)) !important;
+    /* Brilho neon intenso */
+}
+
+/* Títulos dentro dos Cards Elegantes e Finos */
+.card h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 400;
+    /* Remove o visual grosso do negrito padrão */
+    font-size: 1.25rem;
+    /* Tamanho equilibrado */
+    text-transform: uppercase;
+    /* Caixa alta para manter a identidade do título principal */
+    letter-spacing: 3px;
+    /* Espaçamento elegante entre as letras */
+    color: #ffffff;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+/* Textos descritivos dentro dos Cards */
+.card p {
+    font-weight: 300;
+    /* Texto interno mais fino e leve de ler */
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    /* Mais espaço entre as linhas para melhor leitura */
+    margin-bottom: 0;
+}
+
+/* Ajuste no Emblema do Emoji para combinar com o visual clean */
+.card-icon-wrapper {
+    font-size: 1.8rem;
+    /* Ícone ligeiramente mais discreto */
+    margin-bottom: 20px;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.02);
+    width: 60px;
+    height: 60px;
+    line-height: 56px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   ARQUIVO COMPLETO: home.component.css (TEMA PREMIUM COPA 2026)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. ESTRUTURA E CONTAINER
+-------------------------------------------------------------------------- */
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+.row.g-4 {
+    margin-top: 10px;
+}
+
+/* Subtítulo da Página (Texto de Apoio) */
+p.lead {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: 300;
+    max-width: 650px;
+    margin: 0 auto 50px auto;
+    line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   3. CARTÕES DE NAVEGAÇÃO (CARDS)
+-------------------------------------------------------------------------- */
+.card {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--card-border) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px !important;
+    padding: 25px 15px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Linha luminosa invisível que acende no topo do card ao passar o mouse */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-neon));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Efeito Hover do Card (Elevação e brilho verde nas bordas) */
+.card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 255, 135, 0.3) !important;
+    box-shadow: 0 15px 30px rgba(0, 255, 135, 0.15);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+/* Emblema circular sutil para os Emojis */
+/* ==========================================================================
+   ESTILIZAÇÃO DOS NOVOS ÍCONES DO BOOTSTRAP (home.component.css)
+   ========================================================================== */
+
+/* O círculo que envolve o ícone */
+.card-icon-wrapper {
+    margin-bottom: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.02);
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* O ícone interno propriamente dito (a tag <i>) */
+.card-icon-wrapper i {
+    font-size: 1.6rem;
+    color: #818cf8;
+    /* Cor roxa/azulada elegante por padrão */
+    transition: all 0.4s ease;
+    display: inline-block;
+}
+
+/* ⚡ EFEITO HOVER: Quando o usuário passa o mouse em qualquer lugar do CARD */
+.card:hover .card-icon-wrapper {
+    border-color: rgba(0, 255, 135, 0.3) !important;
+    /* Borda fica verde neon */
+    background: rgba(0, 255, 135, 0.03) !important;
+    /* Fundo ganha um tom verde sutil */
+    transform: scale(1.05);
+    /* O círculo expande levemente */
+}
+
+.card:hover .card-icon-wrapper i {
+    color: var(--accent-neon) !important;
+    /* O ícone acende em verde neon */
+    filter: drop-shadow(0 0 10px rgba(0, 255, 135, 0.6));
+    /* Ganha um efeito de brilho/glow realista */
+}
+
+/* Títulos Internos dos Cards (Finos e Espaçados) */
+.card h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 400;
+    /* Sem o negrito pesado */
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    /* Visual harmônico com o H1 */
+    color: #ffffff;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+/* Descrição Interna dos Cards */
+.card p {
+    font-weight: 300;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. BOTÕES DE AÇÃO INTERNOS
+-------------------------------------------------------------------------- */
+.btn-home-action {
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.25);
+    color: #ffffff !important;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    text-decoration: none;
+}
+
+.btn-home-action:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   SEÇÃO DE BOAS-VINDAS / ENCERRAMENTO TOTALMENTE REPAGINADA
+   ========================================================================== */
+
+/* Título de Boas-Vindas Grande e Impactante */
+h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 200;
+    /* Fonte ultra fina para manter o luxo */
+    font-size: 2.2rem;
+    /* Dobro do tamanho anterior para dar presença */
+    text-transform: uppercase;
+    letter-spacing: 14px;
+    /* Espaçamento super amplo, conversando com o H1 do topo */
+    padding-left: 14px;
+    /* Centralização matemática exata */
+
+    /* Gradiente Neon Vibrante (Verde Copa para Ciano) */
+    background: linear-gradient(135deg, var(--accent-neon) 0%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    margin-top: 120px;
+    /* Empurra o bloco bem para baixo dos cards, dando muito respiro */
+    margin-bottom: 25px;
+
+    /* Efeito de brilho pulsante simulando os refletores do estádio */
+    animation: neonPulse 3s ease-in-out infinite alternate;
+}
+
+
+
+/* Subtexto do rodapé */
+.text-muted {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 300;
+    color: var(--text-muted) !important;
+    max-width: 650px;
+    /* Um pouco mais largo para acomodar o texto elegantemente */
+    margin: 0 auto !important;
+    font-size: 1.05rem;
+    /* Texto ligeiramente maior e mais legível */
+    line-height: 1.9;
+    /* Bastante espaço entre as linhas para leitura leve */
+    letter-spacing: 1px;
+
+    /* Margem inferior gigante para um acabamento perfeito na rolagem da tela */
+    padding-bottom: 140px;
+}
+
+/* Linha fina decorativa superior para isolar o encerramento dos cards */
+h4::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 auto 30px auto;
+}
+
+/* Animação que faz o brilho neon do título pulsar suavemente */
+@keyframes neonPulse {
+    from {
+        filter: drop-shadow(0 0 2px rgba(0, 255, 135, 0.1));
+    }
+
+    to {
+        filter: drop-shadow(0 0 15px rgba(0, 255, 135, 0.35));
+    }
+
+
+}

@@ -1,0 +1,307 @@
+/* ==========================================================================
+   ARQUIVO COMPLETO: times.component.css (TEMA PREMIUM TIMES COPA 2026)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. ESTRUTURA E CABEÇALHO DA PÁGINA
+-------------------------------------------------------------------------- */
+.container {
+    position: relative;
+    z-index: 1;
+    padding-top: 30px;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+.row.g-4 {
+    margin-top: 5px;
+}
+
+h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 200;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    padding-left: 10px;
+    background: linear-gradient(135deg, #ffffff 40%, var(--accent-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 40px;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    margin: 15px 0 0 10px;
+}
+
+p.text-muted {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 1rem !important;
+    letter-spacing: 1px !important;
+    color: #e2e8f0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 20px !important;
+    padding-left: 5px !important;
+}
+
+p.text-muted strong {
+    font-weight: 600 !important;
+    color: var(--accent-neon) !important;
+    text-shadow: 0 0 10px rgba(0, 255, 135, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   2. FORMULÁRIO DE CADASTRO
+-------------------------------------------------------------------------- */
+.form-card {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--card-border) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px !important;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+}
+
+.form-label {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    color: #a5b4fc;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+    border-radius: 12px !important;
+    padding: 12px 18px !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 300;
+    transition: all 0.3s ease !important;
+}
+
+.form-control:focus {
+    background: rgba(99, 102, 241, 0.05) !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.25) !important;
+    outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. ESTILIZAÇÃO AVANÇADA DA TABELA E DOS NOMES (PREMIUM)
+-------------------------------------------------------------------------- */
+.table-responsive-wrapper {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--card-border) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.table {
+    margin-bottom: 0 !important;
+    vertical-align: middle;
+}
+
+.table th {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    font-size: 0.8rem !important;
+    color: #94a3b8 !important;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05) !important;
+    padding: 15px 20px !important;
+    background: transparent !important;
+}
+
+.table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03) !important;
+    padding: 16px 20px !important;
+    background: transparent !important;
+}
+
+/* Container do Nome do Time */
+.team-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Pequena luz indicadora antes do nome */
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #818cf8;
+    border-radius: 50%;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 8px rgba(129, 140, 248, 0.6);
+}
+
+/* O Nome do Time propriamente dito */
+.team-name {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    color: #ffffff !important;
+    font-weight: 400 !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Exibição estilizada dos Pontos */
+.points-display {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    color: #cbd5e1 !important;
+    font-weight: 500 !important;
+}
+
+.points-display small {
+    font-size: 0.7rem;
+    color: #64748b;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Badge do Grupo com Estilo de Vidro Lapidado */
+.badge-group {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #a5b4fc !important;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+}
+
+/* ⚡ HOVER COMPLEMENTAR NA TR (Efeito premium ao passar o mouse na linha) */
+.table tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Quando passa o mouse na linha, o nome ganha vida! */
+.table tbody tr:hover .team-name {
+    color: var(--accent-neon) !important;
+    /* Texto fica verde neon */
+    transform: translateX(4px);
+    /* Desloca elegantemente pro lado */
+    text-shadow: 0 0 10px rgba(0, 255, 135, 0.4);
+}
+
+/* O ponto indicador também acende forte em verde */
+.table tbody tr:hover .status-dot {
+    background-color: var(--accent-neon);
+    box-shadow: 0 0 12px rgba(0, 255, 135, 1);
+    transform: scale(1.2);
+}
+
+/* --------------------------------------------------------------------------
+   4. BOTÕES DE AÇÃO
+-------------------------------------------------------------------------- */
+.btn-premium-primary {
+    background: rgba(99, 102, 241, 0.1) !important;
+    border: 1px solid rgba(99, 102, 241, 0.4) !important;
+    color: #ffffff !important;
+    padding: 14px 25px !important;
+    border-radius: 12px !important;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.btn-premium-primary:hover {
+    background: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4) !important;
+    transform: translateY(-2px);
+}
+
+.btn-action-edit,
+.btn-action-delete {
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #94a3b8 !important;
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease !important;
+}
+
+.btn-action-edit:hover {
+    color: var(--accent-neon) !important;
+    border-color: rgba(0, 255, 135, 0.3) !important;
+    background: rgba(0, 255, 135, 0.04) !important;
+    box-shadow: 0 0 10px rgba(0, 255, 135, 0.15);
+}
+
+.btn-action-delete {
+    margin-left: 8px;
+}
+
+.btn-action-delete:hover {
+    color: #ff4a4a !important;
+    border-color: rgba(255, 74, 74, 0.3) !important;
+    background: rgba(255, 74, 74, 0.04) !important;
+    box-shadow: 0 0 10px rgba(255, 74, 74, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   5. ACABAMENTO DE ROLAGEM
+-------------------------------------------------------------------------- */
+.footer-spacer {
+    padding-bottom: 140px;
+}
+
+
+.title-times {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 200 !important;
+    font-size: 2.5rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 10px !important;
+
+    /* Degradê metálico */
+    background: linear-gradient(135deg, #ffffff 40%, var(--accent-gold) 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+
+    margin-bottom: 40px !important;
+    text-align: center !important;
+}
+
+/* Linha decorativa centralizada */
+.title-times::after {
+    content: '' !important;
+    display: block !important;
+    width: 60px !important;
+    height: 2px !important;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent) !important;
+    margin: 15px auto 0 auto !important;
+    /* O 'auto' centraliza perfeitamente */
+}
