@@ -407,7 +407,7 @@ h4 {
     color: var(--text-muted) !important;
     max-width: 650px;
     /* Um pouco mais largo para acomodar o texto elegantemente */
-    margin: 0 auto !important;
+    margin: auto !important;
     font-size: 1.05rem;
     /* Texto ligeiramente maior e mais legível */
     line-height: 1.9;
@@ -439,4 +439,69 @@ h4::before {
     }
 
 
+}
+
+
+/* Container da Galeria - Versão Definitiva */
+.card-gallery {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 100%;
+}
+
+.card-gallery:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-gold);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+}
+
+.card-gallery img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    filter: brightness(0.9);
+    transition: all 0.5s ease;
+}
+
+.card-gallery:hover img {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+}
+
+.card-body-gallery {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.card-body-gallery h5 {
+    color: #fff;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin: 0;
+    text-transform: uppercase;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Isso garante que nada tenha espaço extra acima do container do mural */
+.container.mt-n4 {
+    margin-top: -30px !important;
+    /* Ajuste esse valor para -40px se precisar subir mais */
+    padding-top: 0 !important;
+}
+
+/* Garante que o elemento logo acima não tenha margem inferior sobrando */
+.container.text-center.mt-2 {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Ajuste o valor negativo até ficar na distância que você gosta */
+.mural-fix {
+    margin-top: -50px !important;
+    padding-top: 0 !important;
 }
