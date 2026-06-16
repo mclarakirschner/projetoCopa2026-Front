@@ -6,7 +6,7 @@
 
   <div class="ranking-card">
     <div class="table-responsive">
-      <table class="table table-hover">
+      <table class="table">
         <thead>
           <tr>
             <th>Posição</th>
@@ -16,14 +16,21 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let t of times(); let i = index">
+          <tr *ngFor="let t of times(); let i = index" [class.highlight-row]="i < 3">
+
             <td class="pos-cell">
               <i *ngIf="i == 0" class="bi bi-trophy-fill medal-gold"></i>
               <i *ngIf="i == 1" class="bi bi-award-fill medal-silver"></i>
               <i *ngIf="i == 2" class="bi bi-award-fill medal-bronze"></i>
               <span *ngIf="i > 2" class="num-pos">{{ i + 1 }}º</span>
             </td>
-            <td class="time-cell"><strong>{{ t.nome }}</strong></td>
+
+            <td class="time-cell">
+              <div class="team-content">
+                <strong>{{ t.nome }}</strong>
+              </div>
+            </td>
+
             <td class="group-cell">Grupo {{ t.grupo }}</td>
             <td class="points-col">{{ t.pontos }}</td>
           </tr>

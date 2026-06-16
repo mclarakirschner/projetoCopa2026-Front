@@ -14,9 +14,15 @@
             <div class="form-card">
                 <form [formGroup]="formGroupTime">
 
+                    <div class="mb-4">
+                        <label class="form-title-custom" for="nome">
+                            Cadastre o time para partida!
+                        </label>
+                    </div>
+
                     <div class="mb-3">
-                        <label class="form-label" for="nome">Nome</label>
-                        <input placeholder="Insira o nome do time..." formControlName="nome" type="text"
+                        <label class="form-label" for="nome">Nome do time</label>
+                        <input placeholder="Ex: Alemanha, Brasil..." formControlName="nome" type="text"
                             class="form-control glass-input" id="nome">
                     </div>
 
@@ -26,10 +32,7 @@
                             class="form-control glass-input" id="grupo">
                     </div>
 
-                    <div class="mb-4">
-                        <label class="form-label" for="pontos">Pontos</label>
-                        <input formControlName="pontos" type="text" class="form-control" id="pontos">
-                    </div>
+
 
                     <div class="d-grid">
                         <button type="button" class="btn-premium-primary" (click)="save()">

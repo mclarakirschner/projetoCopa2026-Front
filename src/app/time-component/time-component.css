@@ -391,3 +391,26 @@ p.text-muted strong {
     border-color: var(--accent-gold) !important;
     box-shadow: 0 0 10px rgba(212, 175, 55, 0.2) !important;
 }
+
+.form-title-custom {
+    display: block;
+    /* Fonte mais fina e elegante */
+    font-weight: 300 !important;
+    font-size: 1rem !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    text-transform: uppercase;
+    letter-spacing: 2px !important;
+    margin-bottom: 20px;
+
+    /* Degradê colorido: Branco para Dourado */
+    background: linear-gradient(90deg, #ffffff 0%, var(--accent-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Removemos a borda pesada e usamos um espaçamento limpo */
+    padding-bottom: 5px;
+
+    /* Linha decorativa elegante abaixo do título */
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
