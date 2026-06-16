@@ -53,7 +53,7 @@ p.lead {
     color: var(--text-muted);
     font-size: 1.2rem;
     max-width: 650px;
-    margin: 0 auto 40px auto;
+    margin: 0 auto 20px auto;
     line-height: 1.6;
 }
 

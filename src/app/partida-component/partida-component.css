@@ -154,15 +154,21 @@ input[type="number"] {
     background-color: rgba(234, 179, 8, 0.03) !important;
 }
 
-/* Estilização interna do menu suspenso do select */
-select.form-select option {
-    background-color: #161224 !important;
-    /* Fundo roxo escuro premium da Copa */
-    color: #cbd5e1 !important;
-    /* Letras legíveis em tom cinza claro */
+/* Estilização básica das opções (funciona em alguns navegadores) */
+select option {
+    background-color: #a5b4fc !important;
+    /* Fundo escuro */
+    color: #ffffff !important;
+    /* Texto branco */
+    padding: 15px !important;
+    /* Espaçamento */
     font-family: 'Plus Jakarta Sans', sans-serif !important;
-    font-weight: 400 !important;
-    padding: 14px !important;
+}
+
+/* Garante que o texto selecionado também siga o padrão */
+select:focus>option:checked {
+    background: var(--accent-gold) !important;
+    color: #110d29 !important;
 }
 
 /* --------------------------------------------------------------------------

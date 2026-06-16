@@ -1,48 +1,34 @@
-<div class="container mt-4">
-
-  <h2 class="text-center mb-4">
-    🏆 Ranking da Copa 2026
+<div class="container mt-5">
+  <h2 class="text-center mb-4 title-times">
+    <span class="title-icon"><i class="bi bi-bar-chart-line"></i></span>
+    Ranking da Copa 2026
   </h2>
 
-  <!-- CARD DA TABELA -->
-  <div class="card shadow-sm p-3">
-
+  <div class="ranking-card">
     <div class="table-responsive">
       <table class="table table-hover">
         <thead>
           <tr>
             <th>Posição</th>
-            <th>Time</th>
+            <th>Seleção</th>
             <th>Grupo</th>
             <th>Pontos</th>
           </tr>
         </thead>
-
         <tbody>
           <tr *ngFor="let t of times(); let i = index">
-
-            <!-- Célula da Posição com Ícones do Bootstrap -->
             <td class="pos-cell">
-              <i *ngIf="i == 0" class="bi bi-trophy-fill medal-gold" title="1º Lugar"></i>
-              <i *ngIf="i == 1" class="bi bi-award-fill medal-silver" title="2º Lugar"></i>
-              <i *ngIf="i == 2" class="bi bi-award-fill medal-bronze" title="3º Lugar"></i>
+              <i *ngIf="i == 0" class="bi bi-trophy-fill medal-gold"></i>
+              <i *ngIf="i == 1" class="bi bi-award-fill medal-silver"></i>
+              <i *ngIf="i == 2" class="bi bi-award-fill medal-bronze"></i>
               <span *ngIf="i > 2" class="num-pos">{{ i + 1 }}º</span>
             </td>
-
-            <!-- Nome do Time -->
-            <td class="time-cell">{{ t.nome }}</td>
-
-            <!-- Grupo -->
+            <td class="time-cell"><strong>{{ t.nome }}</strong></td>
             <td class="group-cell">Grupo {{ t.grupo }}</td>
-
-            <!-- Pontos (Destaque Digital Neon) -->
             <td class="points-col">{{ t.pontos }}</td>
-
           </tr>
         </tbody>
       </table>
     </div>
-
   </div>
-
 </div>
